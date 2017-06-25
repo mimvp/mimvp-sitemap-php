@@ -51,7 +51,7 @@ class SitemapIndex
 		return $this->filePath;
 	}
 	
-	private function createNewFile()
+	private function createSitemap()
 	{
 		$this->writer = new XMLWriter();
 		$this->writer->openMemory();
@@ -64,7 +64,7 @@ class SitemapIndex
 	public function addSitemap($location, $lastModified = null)
 	{
 		if ($this->writer === null) {
-			$this->createNewFile();
+			$this->createSitemap();
 		}
 		
 		$this->writer->startElement('sitemap');
