@@ -1,4 +1,3 @@
-**For the 90's people, i'm keeping this repository as 5.2 compatible. If you need PSR-0 and Composer compatible version, [here is a fork that maintained by Evert Pot](https://github.com/evert/sitemap-php).**
 
 What is sitemap-php ?
 ----------
@@ -10,8 +9,7 @@ How to use
 
 Include Sitemap.php file to your PHP document and call Sitemap class with your base domain.
 
-	include 'Sitemap.php';
-	$sitemap = new Sitemap('http://example.com');	
+	$sitemap = new Sitemap('http://mimvp.com');	
 
 Now, we need to define path for saving XML files. This can be relative like `xmls` or absolute `/path/to/your/folder` and *must be a writable folder*. In default it uses same folder with your script.
 
