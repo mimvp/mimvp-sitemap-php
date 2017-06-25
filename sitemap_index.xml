@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <sitemap>
   <loc>http://mimvp.com/sitemap.xml</loc>
-  <lastmod>2017-06-25T16:02:13+08:00</lastmod>
+  <lastmod>2017-06-25T17:17:06+08:00</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://mimvp.com/sitemap_2.xml</loc>
-  <lastmod>2017-06-14T02:15:33+08:00</lastmod>
+  <loc>http://mimvp.com/sitemap-2.xml</loc>
+  <lastmod>2017-06-14T03:30:26+08:00</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://mimvp.com/sitemap_3.xml</loc>
+  <loc>http://mimvp.com/sitemap-3.xml</loc>
   <lastmod>2017-06-22T00:00:00+08:00</lastmod>
  </sitemap>
 </sitemapindex>

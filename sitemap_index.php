@@ -15,7 +15,8 @@ $sitemap = new SitemapIndex($xmlFile);
 
 $sitemap->addSitemap('http://mimvp.com/sitemap.xml');
 $sitemap->addSitemap('http://mimvp.com/sitemap-2.xml', time()-1000000);
-$sitemap->addSitemap('http://mimvp.com/sitemap-3.xml', '2017-06-22');
+$sitemap->addSitemap('http://mimvp.com/sitemap-3.xml', '2017-06-22
+');
 $sitemap->endSitemap();
 
 echo "<script>window.open('" . $xmlFile . "')</script>";
@@ -78,9 +79,9 @@ class SitemapIndex
 			$this->writer->endElement();
 			$this->writer->endDocument();
 			$filePath = $this->getFilePath();
-			if ($this->useGzip) {
-				$filePath = 'compress.zlib://' . $filePath;
-			}
+// 			if ($this->useGzip) {
+// 				$filePath = 'compress.zlib://' . $filePath;
+// 			}
 			file_put_contents($filePath, $this->writer->flush());
 		}
 	}
