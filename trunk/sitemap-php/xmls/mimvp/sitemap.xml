@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>http://mimvp.com/</loc>
 		<title>米扑科技</title>
@@ -23,7 +23,7 @@
 	</url>
 	<url>
 		<loc>http://mimvp.com/about.php</loc>
-		<title>米扑科技</title>vim
+		<title>米扑科技</title>
 		<priority>0.8</priority>
 		<changefreq>monthly</changefreq>
 		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
