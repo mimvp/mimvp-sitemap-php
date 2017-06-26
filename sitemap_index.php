@@ -1,9 +1,8 @@
 <?php
 /**
- * @author		Sandy <sandy@mimvp.com>
+ * @author	Sandy <sandy@mimvp.com>
  * @copyright	2009-2017 mimvp.com
- * @datetime	2017.06.20
- * @version		1.0.1
+ * @version	1.0.1 (2017.06.20)
  */
 
 

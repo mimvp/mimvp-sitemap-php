@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @author		Sandy <sandy@mimvp.com>
+ * @author	Sandy <sandy@mimvp.com>
  * @copyright	2009-2017 mimvp.com
- * @datetime	2017.06.20
- * @version		1.0.1
+ * @version	1.0.1 (2017.06.20)
  */
+
 
 // 计算生成时间
 $cost_time_start = getMillisecond();
@@ -36,8 +35,8 @@ $GExcludeArray = array("usercenter/", "sadmin/", "admin/", "sitemap.php");
 
 var_dump($GCONFIG);
 
-// testSitemap();
-createSitemap();
+// testSitemap();	// 测试主函数
+createSitemap();	// 主函数
 
 // 删除测试文件或目录
 // testCreateFiles(false);
