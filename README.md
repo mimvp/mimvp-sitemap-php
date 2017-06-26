@@ -4,7 +4,9 @@ What is sitemap-php ?
 
 sitemap-php 是一个轻量级、简单快速生成网站地图的开源项目，由北京米扑科技有限公司(mimvp.com)开发分享。
 
-通过简单的配置定义，可自动生成sitemap.xml、sitemap.html等网站地图文件，支持Google、Bing、Baidu等主流搜索引擎。
+通过简单的配置定义，可自动生成sitemap.xml、sitemap.html等网站地图文件,
+
+支持Google、Bing、Baidu等主流搜索引擎。
 
 Fast and lightweight class for generating Google sitemap XML files and index of sitemap files. 
 
@@ -36,7 +38,7 @@ function testSitemap() {
 1. 初始化类对象
 
 ```php
-	$sitemap->addItem('/index.php', '1.0', 'daily', time());
+$sitemap->addItem('/index.php', '1.0', 'daily', time());
 ```
 
 2. 添加Item
@@ -75,7 +77,7 @@ $sitemap->endSitemap();
 		<loc>http://mimvp.com/hr.php</loc>
 		<priority>0.8</priority>
 		<changefreq>monthly</changefreq>
-		<lastmod>2017-06-26T19:20:24+08:00</lastmod>
+		<lastmod>2017-06-26T20:16:23+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/index.php</loc>
@@ -89,6 +91,7 @@ $sitemap->endSitemap();
 		<changefreq>monthly</changefreq>
 		<lastmod>2017-06-26T00:00:00+08:00</lastmod>
 	</url>
+</urlset>
 ```
 
 
@@ -123,9 +126,9 @@ $sitemap->setIsChemaMore(true);
 
 如果设置为true，则sitemap.xml文件头部会增加一些头部信息：
 
-```php
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
-	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+```xml
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
 ```
 	
 4. 获取当前写入的sitemap文件
@@ -170,14 +173,14 @@ Sitemap Demo
 
 ```php
 	$GCONFIG = array(	"domain"=>"http://mimvp.com",
-						"xmlfile"=>"sitemap",
-						"htmlfile"=>"sitemap.html",
-						"xslfile"=>"sitemap-xml.xsl",
-						"isopen_xmlfile"=>true,
-						"isopen_htmlfile"=>true,
-						"isscanrootpath"=>true,
-						"isxsl2html"=>true,
-						"isschemamore"=>true);
+				"xmlfile"=>"sitemap",
+				"htmlfile"=>"sitemap.html",
+				"xslfile"=>"sitemap-xml.xsl",
+				"isopen_xmlfile"=>true,
+				"isopen_htmlfile"=>true,
+				"isscanrootpath"=>true,
+				"isxsl2html"=>true,
+				"isschemamore"=>true);
 ```
 
 1. 生成sitemap.xml
@@ -187,7 +190,8 @@ createSitemap();
 ```
 
 生成示例：
-![sitemap.xml 示例] (https://github.com/mimvp/sitemap-php/blob/master/mimvp-sitemap-xml.png)
+
+![sitemap.xml 示例](https://github.com/mimvp/sitemap-php/blob/master/mimvp-sitemap-xml.png)
 
 
 
@@ -199,7 +203,8 @@ createXSL2Html($xmlFile, $xslFile, $htmlFile, $isopen_htmlfile=false);
 ```
 
 生成示例：
-![sitemap.html 示例] (https://github.com/mimvp/sitemap-php/blob/master/mimvp-sitemap-html.png)
+
+![sitemap.html 示例](https://github.com/mimvp/sitemap-php/blob/master/mimvp-sitemap-html.png)
 	
 	
 You need to submit sitemap.xml and sitemap.html to Google、 Bing、 Baidu，etc.
