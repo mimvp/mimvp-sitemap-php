@@ -2,122 +2,26 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>http://mimvp.com/</loc>
-		<priority>1</priority>
+		<priority>1.0</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/index.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/about.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
+		<lastmod>2017-06-26T00:00:00+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/hr.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/css/style.css</loc>
 		<priority>0.8</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<lastmod>2017-06-26T19:44:40+08:00</lastmod>
 	</url>
 	<url>
-		<loc>http://mimvp.com/img/mimvp-logo.png</loc>
+		<loc>http://mimvp.com/index.php</loc>
+		<priority>1.0</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/about.php</loc>
 		<priority>0.8</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/img/sandy.jpeg</loc>
-		<priority>0.8</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/js/mimvp.js</loc>
-		<priority>0.8</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/phpinfo.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/robots.txt</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap-2.xml</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap-3.xml</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap.xml</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap2.xml</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap3.xml</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap_index.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/test_xml_read.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/test_xml_write.php</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/xmls/mimvp/sitemap111.xml</loc>
-		<priority>0.6</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/xmls/sitemap.xml</loc>
-		<priority>0.8</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T13:32:12+08:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<lastmod>2017-06-26T00:00:00+08:00</lastmod>
 	</url>
 </urlset>

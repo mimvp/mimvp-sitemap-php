@@ -12,7 +12,7 @@
 				<style type="text/css">
 					body {
 						font-family:"Lucida Grande","Lucida Sans Unicode",Tahoma,Verdana;
-						font-size:13px;
+						font-size:12px;
 					}
 					h1 {color:#0099CC;}
 					#intro {
@@ -23,17 +23,17 @@
 					}
 					
 					#intro p {
-						line-height:	16.8667px;
+						line-height: 16.8667px;
 					}
 					
 					td {
-						font-size:11px;
+						font-size: 14px;
 					}
 					
 					th {
 						text-align:left;
 						padding-right:30px;
-						font-size:11px;
+						font-size:14px;
 					}
 					
 					tr.high {
@@ -60,9 +60,11 @@
 				<h1>XML Sitemap</h1>
 				<div id="intro">
 					<p>
-						This is a XML Sitemap which is supposed to be processed by search engines like <a href="http://www.google.com">Google</a>, <a href="http://search.msn.com">MSN Search</a> and <a href="http://www.yahoo.com">YAHOO</a>.<br />
+						This is a XML Sitemap which is supposed to be processed by search engines like <a href="http://www.google.com">Google</a>, <a href="http://bing.com">Bing</a>, <a href="http://www.yahoo.com">Yahoo</a> and <a href="http://www.baidu.com">Baidu</a>.<br />
 						With such a sitemap, it's much easier for the crawlers to see the complete structure of your site and retrieve it more efficiently.<br />
-					More information about what <a href="http://www.sitemapx.com" title="XML Sitemap">XML Sitemap</a> is and how it can help you to get indexed by the major search engines can be found at <a href="http://www.sitemapx.com" title="sitemap">SitemapX.com</a>.</p>
+						More information about what <a href="https://github.com/mimvp/sitemap-php" title="XML Sitemap">XML Sitemap</a> is and how it can help you to get indexed by the major search engines can be found at <a href="http://www.sitemapx.com" title="sitemap">SitemapX.com</a>.<br />
+						© 2009 - 2017 All Rights by <a href="http://mimvp.com">mimvp.com</a>, Sitemap Demo: <a href="http://mimvp.com/sitemap.html">http://mimvp.com/sitemap.html</a>, Sitemap Github: <a href="https://github.com/mimvp/sitemap-php">https://github.com/mimvp/sitemap-php</a>.
+					</p>
 	        </div>
 				<div id="content">
 					<table cellpadding="5">
@@ -101,7 +103,7 @@
 					</table>
 				</div>
 				<div id="footer">
-					Generated with Google <a href="http://www.sitemapx.com" title="Sitemap Generator">Sitemap Generator</a> Plugin for Website by <a href="http://www.sitemapx.com" title="sitemap">SitemapX.com</a>. Sponsored Links: <a href="http://www.submitworker.com/software-promotion.html" title="Software Promotion">Software Promotion</a>, <a href="http://www.articlerewriteworker.com" title="Article Rewrite">Article Rewrite</a>, <a href="http://www.submitworker.com/submit-software.html" title="submit software">Submit Software</a>.				</div>
+					Generated with Google <a href="http://mimvp.com/sitemap.html" title="MIMVP Sitemap Generator">Sitemap Generator</a> Plugin for Website by <a href="http://mimvp.com" title="sitemap">MIMVP.com</a>.</div>
 			</body>
 		</html>
 	</xsl:template>

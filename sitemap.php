@@ -11,11 +11,17 @@
 $cost_time_start = getMillisecond();
 
 // 创建测试文件或目录
-testCreateFiles(true);		
+// testCreateFiles(true);		
 
 // 全局变量，G开头
 $GCONFIG = array("domain"=>"http://mimvp.com",
 		"xmlfile"=>"sitemap",
+		"htmlfile"=>"sitemap.html",
+		"xslfile"=>"sitemap-xml.xsl",
+		"isopen_xmlfile"=>true,
+		"isopen_htmlfile"=>true,
+		"isscanrootpath"=>true,
+		"isxsl2html"=>true,
 		"isschemamore"=>true);
 
 $GChangeFreqArray = array('always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never');
@@ -23,42 +29,18 @@ $GFileTypesArray = array('php', 'html', 'xml', 'txt', 'zip', 'pdf', 'css', 'js',
 $GPriorityArray = array("1"=>"1", "2"=>"0.8", "3"=>"0.6", "4"=>"0.5");				// 按照层级对应优先级，第一层优先级为1，第二级为0.8，第三级为0.6
 
 // 包含文件, 以/开头
-$GIncludeArray = array("", "/index.php", "about.php", "hr.php");
+$GIncludeArray = array("", "hr.php", "/index.php", "about.php");
 
 // 排除文件，模糊匹配
 $GExcludeArray = array("usercenter/", "sadmin/", "admin/", "sitemap.php");
 
 var_dump($GCONFIG);
 
-$sitemap = new Sitemap($GCONFIG['domain']);			// http://mimvp.com
-$sitemap->setXmlFile($GCONFIG['xmlfile']);			// 设置xml文件（可选）
-$sitemap->setDomain($GCONFIG['domain']);				// 设置自定义的根域名（可选）
-$sitemap->setIsChemaMore($GCONFIG['isschemamore']);	// 设置是否写入额外的Schema头信息（可选）
-
-/*
- $sitemap->addItem('/', '1.0', 'daily', 'Today');
- $sitemap->addItem('/index.php', '1.0', 'daily', 'Today');
- $sitemap->addItem('/hr.php', '0.8', 'monthly', 'Jun 25');
- $sitemap->addItem('/about.php', '0.8', 'monthly', 'Jun 25');
- 
- $sitemap->addItem('/', '1.0', 'daily', '2017-06-01');
- $sitemap->addItem('/index.php', '1.0', 'daily', '2017-06-05');
- $sitemap->addItem('/hr.php', '0.8', 'monthly', '2017-06-13');
- $sitemap->addItem('/about.php', '0.8', 'monthly', '2017-06-25');
- */
-
-$scanRootPathArray = scanRootPath();		//  扫描当前根目录
-var_dump($scanRootPathArray);
-createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, $scanRootPathArray);
-
-$sitemap->endSitemap();
-
-// 打开生成的 sitemap.xml
-echo "<script>window.open('".$sitemap->getCurrXmlFileFullPath()."')</script>";
-echo "<br>Create Sitemap Success";
+testSitemap();
+// createSitemap();
 
 // 删除测试文件或目录
-testCreateFiles(false);
+// testCreateFiles(false);
 
 // 计算生成的时间
 $cost_time = getMillisecond() - $cost_time_start;
@@ -66,6 +48,108 @@ $cost_time= sprintf('%01.6f', $cost_time);
 echo "<br>cost_time : $cost_time (s)<br>";
 
 
+/*
+ * 生成sitemap item 示例
+ */
+function testSitemap() {
+	$sitemap = new Sitemap("http://mimvp.com");
+	
+	$sitemap->addItem('/', '1.0', 'daily', 'Today');
+	$sitemap->addItem('/hr.php', '0.8', 'monthly', time());
+	$sitemap->addItem('/index.php', '1.0', 'daily', 'Jun 25');
+	$sitemap->addItem('/about.php', '0.8', 'monthly', '2017-06-26');
+	 
+// 	$sitemap->addItem('/hr2.php', '1.0', 'daily', time())->addItem('/index2.php', '1.0', 'daily', 'Today')->addItem('/about2.php', '0.8', 'monthly', 'Jun 25');
+	 
+	$sitemap->endSitemap();
+	 
+	 createXSL2Html("sitemap.xml", "sitemap-xml.xsl", "sitemap.html", true);
+}
+
+
+/**
+ * 创建sitemap.xml
+ * @param array $itemsArray2
+ */
+function createSitemap() {
+	global $GCONFIG;
+	global $GIncludeArray;
+	global $GExcludeArray;
+	global $GPriorityArray;
+	
+	//  是否扫描当前根目录
+	$scanRootPathArray = array();
+	if($GCONFIG['isscanrootpath']) {
+		$scanRootPathArray = scanRootPath();
+		var_dump($scanRootPathArray);
+	}
+	// 合并多个数组
+	$itemsArray2 = mergeItems($GIncludeArray, $GExcludeArray, $scanRootPathArray);
+	
+	$sitemap = new Sitemap($GCONFIG['domain']);			// http://mimvp.com
+	$sitemap->setXmlFile($GCONFIG['xmlfile']);			// 设置xml文件（可选）
+	$sitemap->setDomain($GCONFIG['domain']);				// 设置自定义的根域名（可选）
+	$sitemap->setIsChemaMore($GCONFIG['isschemamore']);	// 设置是否写入额外的Schema头信息（可选）
+	
+	
+	// 生成sitemap item
+	$idx = 0;
+	foreach ($itemsArray2 as $item) {
+		$idx += 1;
+		echo "$idx  ---  $item<br>";
+		$priority = $GPriorityArray[substr_count($item, "/")];
+		$sitemap->addItem($item, $priority, "daily", time());
+	}
+	
+	$sitemap->endSitemap();
+	
+	// 是否打开生成的文件： sitemap.xml
+	if($GCONFIG['isopen_xmlfile']) {
+		echo "<script>window.open('".$sitemap->getCurrXmlFileFullPath()."')</script>";
+		echo "<br>Create sitemap.xml Success";
+	}
+	
+	// 是否xml转html文件
+	if($GCONFIG['isxsl2html']) {
+		createXSL2Html($sitemap->getCurrXmlFileFullPath(), $GCONFIG['xslfile'], $GCONFIG['htmlfile']);
+	}
+	
+	// 是否打开生成的文件 sitemap.html
+	if($GCONFIG['isopen_htmlfile']) {
+		echo "<script>window.open('".$GCONFIG['htmlfile']."')</script>";
+		echo "<br>Create sitemap.html Success";
+	}
+}
+
+
+/**
+ * 转化 xml + xsl 为 html 
+ * @param unknown $xmlFile		sitemap.xml 源文件
+ * @param unknown $xslFile		sitemap-xml.xsl 源文件
+ * @param unknown $htmlFile		sitemap.html 生成文件
+ * @param string $isopen_htmlfile	是否打开生成文件 sitemap.html
+ */
+function createXSL2Html($xmlFile, $xslFile, $htmlFile, $isopen_htmlfile=false) {
+	
+	header("Content-Type: text/html; charset=UTF-8");
+	$xml = new DOMDocument();
+	$xml->Load($xmlFile);
+	$xsl = new DOMDocument();
+	$xsl->Load($xslFile);
+	$xslproc = new XSLTProcessor();
+	$xslproc->importStylesheet($xsl);
+// 	echo $xslproc->transformToXML($xml);
+	
+	$f = fopen($htmlFile, 'w+');
+	fwrite($f, $xslproc->transformToXML($xml));
+	fclose($f);
+	
+	// 是否打开生成的文件 sitemap.html
+	if($isopen_htmlfile) {
+		echo "<script>window.open('".$htmlFile."')</script>";
+		echo "<br>Create sitemap.html Success";
+	}
+}
 
 
 
@@ -77,7 +161,7 @@ echo "<br>cost_time : $cost_time (s)<br>";
  * @param unknown $GExcludeArray		排除文件数组
  * @param array $scanRootPathArray		扫描根目录文件
  */
-function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, $scanRootPathArray=array()) {
+function mergeItems($GIncludeArray, $GExcludeArray, $scanRootPathArray=array()) {
 	
 	echo "<br><br>";
 	$itemsArray = array_merge($GIncludeArray, $scanRootPathArray);
@@ -112,14 +196,7 @@ function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, 
 	}
 	var_dump($itemsArray2);
 	
-	// 生成sitemap item
-	$idx = 0;
-	foreach ($itemsArray2 as $item) {
-		$idx += 1;
-		echo "$idx  ---  $item<br>";
-		$priority = $GPriorityArray[substr_count($item, "/")];
-		$sitemap->addItem($item, $priority, "daily", time());
-	}
+	return $itemsArray2;
 }
 
 
@@ -177,7 +254,7 @@ function testCreateFiles($isCreate=false) {
 				mkdir($dir, 0777, true);
 			}
 			if(!file_exists($file)) {
-				echo "file --- $file<br>";
+// 				echo "file --- $file<br>";
 				$f = fopen($file, "w");
 				fwrite($f, "<?php sitemap.xml by mimvp.com in 2017 ?>");
 				fclose($f);
