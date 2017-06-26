@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author		Sandy <sandy@mimvp.com>
  * @copyright	2009-2017 mimvp.com
@@ -7,52 +8,57 @@
  */
 
 $cost_time_start = getMillisecond();
+testCreateFiles(true);
 
-$CONFIG = array("domain"=>"http://mimvp.com",
-				"xmlfile"=>"xmls/sitemap",
-				"isschemamore"=>true);
+// 全局变量，G开头
+$GCONFIG = array("domain"=>"http://mimvp.com",
+		"xmlfile"=>"sitemap",
+		"isschemamore"=>true);
 
 $GChangeFreqArray = array('always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never');
-$GFileTypesArray = array('php', 'html', 'xml', 'txt', 'zip', 'pdf');	// 过滤文件类型
+$GFileTypesArray = array('php', 'html', 'xml', 'txt', 'zip', 'pdf', 'css', 'js', 'png', 'jpeg');	// 过滤文件类型
 $GPriorityArray = array("1"=>"1", "2"=>"0.8", "3"=>"0.6");				// 按照层级对应优先级，第一层优先级为1，第二级为0.8，第三级为0.6
 
-// 包含文件
+// 包含文件, 以/开头
 $GIncludeArray = array("", "/index.php", "about.php", "hr.php");
 
-// 排除文件
-$GExcludeArray = array("usercenter", "sadmin");
+// 排除文件，模糊匹配
+$GExcludeArray = array("usercenter/", "sadmin/", "admin/", "sitemap.php");
 
-var_dump($CONFIG);
+var_dump($GCONFIG);
 
-$sitemap = new Sitemap($CONFIG['domain']);			// http://mimvp.com
-$sitemap->setXmlFile($CONFIG['xmlfile']);			// 设置xml文件（可选）
-$sitemap->setDomain($CONFIG['domain']);				// 设置自定义的根域名（可选）
-$sitemap->setIsChemaMore($CONFIG['isschemamore']);	// 设置是否写入额外的Schema头信息（可选）
+$sitemap = new Sitemap($GCONFIG['domain']);			// http://mimvp.com
+$sitemap->setXmlFile($GCONFIG['xmlfile']);			// 设置xml文件（可选）
+$sitemap->setDomain($GCONFIG['domain']);				// 设置自定义的根域名（可选）
+$sitemap->setIsChemaMore($GCONFIG['isschemamore']);	// 设置是否写入额外的Schema头信息（可选）
 
-// $sitemap->addItem('/', '1.0', 'daily', 'Today');
-// $sitemap->addItem('/index.php', '1.0', 'daily', 'Today');
-// $sitemap->addItem('/hr.php', '0.8', 'monthly', 'Jun 25');
-// $sitemap->addItem('/about.php', '0.8', 'monthly', 'Jun 25');
+/*
+ $sitemap->addItem('/', '1.0', 'daily', 'Today');
+ $sitemap->addItem('/index.php', '1.0', 'daily', 'Today');
+ $sitemap->addItem('/hr.php', '0.8', 'monthly', 'Jun 25');
+ $sitemap->addItem('/about.php', '0.8', 'monthly', 'Jun 25');
+ 
+ $sitemap->addItem('/', '1.0', 'daily', '2017-06-01');
+ $sitemap->addItem('/index.php', '1.0', 'daily', '2017-06-05');
+ $sitemap->addItem('/hr.php', '0.8', 'monthly', '2017-06-13');
+ $sitemap->addItem('/about.php', '0.8', 'monthly', '2017-06-25');
+ */
 
-// $sitemap->addItem('/', '1.0', 'daily', '2017-06-01');
-// $sitemap->addItem('/index.php', '1.0', 'daily', '2017-06-05');
-// $sitemap->addItem('/hr.php', '0.8', 'monthly', '2017-06-13');
-// $sitemap->addItem('/about.php', '0.8', 'monthly', '2017-06-25');
-
-$scanRootPathArray = array();
-scanRootPath($scanRootPathArray);	//  扫描当前根目录
+$scanRootPathArray = scanRootPath();		//  扫描当前根目录
+var_dump($scanRootPathArray);
 createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, $scanRootPathArray);
-
-// createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray);
 
 $sitemap->endSitemap();
 
 echo "<script>window.open('".$sitemap->getCurrXmlFileFullPath()."')</script>";
 echo "<br>Create Sitemap Success";
 
+testCreateFiles(false);
 $cost_time = getMillisecond() - $cost_time_start;
 $cost_time= sprintf('%01.6f', $cost_time);
 echo "<br>cost_time : $cost_time (s)<br>";
+
+
 
 
 
@@ -70,7 +76,8 @@ function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, 
 	$itemsArray = array_merge($GIncludeArray, $scanRootPathArray);
 	
 	// 用于数组去重和格式化/开头文件
-	$itemsArray2 = array();		
+	$itemsArray2 = array();
+	$idx = 0;
 	foreach ($itemsArray as $item) {
 		$item = str_replace(pathinfo ( __FILE__, PATHINFO_DIRNAME ), "", $item);
 		
@@ -83,7 +90,8 @@ function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, 
 		$isExclude = false;
 		foreach ($GExcludeArray as $excludeFile) {
 			if(stripos($item, $excludeFile) > 0) {
-				echo "exclude  --  $item  $excludeFile   true <br>";
+				$idx += 1;
+				echo "$idx  ---  exclude   ---   $item  $excludeFile   true <br>";
 				$isExclude = true;
 				break;
 			}
@@ -91,7 +99,7 @@ function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, 
 		if($isExclude) continue;
 		
 		// 数组去重
-		if(!in_array($item, $itemsArray2)) {			
+		if(!in_array($item, $itemsArray2)) {
 			array_push($itemsArray2, $item);
 		}
 	}
@@ -101,7 +109,7 @@ function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, 
 	$idx = 0;
 	foreach ($itemsArray2 as $item) {
 		$idx += 1;
-		echo "$idx \t\t $item<br>";
+		echo "$idx  ---  $item<br>";
 		$priority = $GPriorityArray[substr_count($item, "/")];
 		$sitemap->addItem($item, $priority, "daily", time());
 	}
@@ -109,12 +117,12 @@ function createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, 
 
 
 /**
- * 递归扫描根目录，默认最多扫描三层
+ * 递归扫描根目录，默认扫描三层
  * @param string $rootPath		根目录
  * @param number $dirLevel		扫描的当前层级
  * @param number $MaxDirLevel	扫描的最大层级
  */
-function scanRootPath(&$resArray, $rootPath=".", $dirLevel=1, $MaxDirLevel=3) {
+function scanRootPath($rootPath=".", $dirLevel=1, $MaxDirLevel=3, &$resArray=array()) {
 	global $GFileTypesArray;
 	
 	if($dirLevel > $MaxDirLevel) {
@@ -132,20 +140,116 @@ function scanRootPath(&$resArray, $rootPath=".", $dirLevel=1, $MaxDirLevel=3) {
 		$filefullpath = $rootPath . "/" . $file;
 		$fileinfo = pathinfo($filefullpath);
 		if(isset($fileinfo['extension']) && in_array($fileinfo['extension'], $GFileTypesArray)) {
-			echo $filefullpath. "<br>";
+			// 			echo $filefullpath. "<br>";
 			array_push($resArray, $filefullpath);
 		}
 		
 		if(is_dir($filefullpath)) {
-			scanRootPath($resArray, $filefullpath, $dirLevel+1, $MaxDirLevel);
+			scanRootPath($filefullpath, $dirLevel+1, $MaxDirLevel, $resArray);
 		}
 	}
+	return $resArray;
 }
+
 
 //  获取毫秒的时间戳
 function getMillisecond() {
 	$time = explode(" ", microtime());
 	return $time[1] + $time[0];
+}
+
+
+// 生成文件或目录供测试用，可删除
+function testCreateFiles($isCreate=false) {
+	$testFiles = array(	"index.php", "about.php", "hr.php", "phpinfo.php", "robots.txt",
+			"sitemap_index.xml", "sitemap-2.xml", "sitemap-3.xml", "sitemap2.xml",
+			"img/mimvp-logo.png", "img/sandy.jpeg", "css/style.css", "js/mimvp.js",
+			"admin/about.php", "admin/admin.php", "admin/hr.php",
+			"usercenter/login.php", "usercenter/regist.php", "usercenter/user.php",
+			"xmls/sitemap.xml", "xmls/mimvp/sitemap111.xml", "xmls/mimvp2/sub/sitemap222.xml", "xmls/mimvp3/sub/third/sitemap333.xml");
+	
+	// 创建文件或目录
+	if($isCreate) {
+		foreach ($testFiles as $file) {
+			$base = basename($file);
+			$dir = dirname($file);
+			if(!is_dir($dir)) {
+				mkdir($dir, 0777, true);
+			}
+			if(!file_exists($file)) {
+				echo "file --- $file<br>";
+				$f = fopen($file, "w");
+				fwrite($f, "<?php sitemap.xml by mimvp.com in 2017 ?>");
+				fclose($f);
+			}
+		}
+	}
+	
+	// 删除文件或目录
+	if(!$isCreate) {
+		foreach ($testFiles as $file) {
+			if(file_exists($file)) unlink($file);	// 删除文件
+			if(stripos($file, "/") > 0) {
+				$dir = explode("/", $file)[0];		// 获取根目录
+				testDeleteDir($dir);
+			}
+		}
+	}
+}
+
+
+// 递归删除文件或目录
+function testDeleteDir($dir) {
+	if($dir == "." || $dir == "..") return;
+	if( is_dir($dir) && rmdir($dir) == false) {
+		if($pd = opendir($dir)) {
+			while(($file = readdir($pd)) != false ) {
+				if($file == "." || $file == "..") continue;
+				$filePath = $dir . "/" . $file;
+				if(is_dir($filePath) && $file != "." && $file != "..") {
+					testDeleteDir($filePath);		// 递归调用
+				} else {
+					if(file_exists($filePath)) unlink($filePath);
+				}
+			}
+			closedir($pd);
+		}
+	}
+	if(is_dir($dir)) rmdir($dir);
+}
+
+
+// 递归删除文件或目录
+function testDeleteDir2($dir, &$fulldir="") {
+	echo "<br> dir 000  -- $dir <br>";
+	
+	if($dir== "." || $dir== "..") return;
+	
+	if(stripos($dir, "/") > 0) {
+		$dir = explode("/", $dir)[0];		// 获取根目录
+		if($fulldir == "") $fulldir = $dir;
+	} else {
+		if(file_exists($dir)) unlink($fulldir . "/" . $dir);	// 删除文件
+		return;
+	}
+	echo "<br> dir 111  -- $dir <br>";
+	if( is_dir($dir) && rmdir($dir) == false) {
+		$pd = opendir($dir);
+		while(($file = readdir($pd)) != false ) {
+			if($file== "." || $file== "..") continue;
+			echo "<br> dir 222  fulldir -- $fulldir  || file  -- $file<br>";
+			if(is_dir($file)) {
+				$fulldir = $fulldir."/".$file;
+				echo "<br> fulldir 555  -- $fulldir<br>";
+				testDeleteDir($file, $fulldir);		// 递归调用
+			} else {
+				// 				$fulldir = $fulldir . "/" . $file;
+				echo "<br> fulldir 333  -- $fulldir<br>";
+				unlink($fulldir);
+				rmdir($fulldir);
+			}
+		}
+	}
 }
 
 /**
@@ -187,10 +291,13 @@ class Sitemap {
 	}
 	
 	/**
-	 * 设置网站地图根域名，开头用 http:// or https://
+	 * 设置网站地图根域名，开头用 http:// or https://, 结尾不要反斜杠/
 	 * @param string $domain	：	网站地图根域名 <br>例如: http://mimvp.com
 	 */
 	public function setDomain($domain) {
+		if(substr($domain, -1) == "/") {
+			$domain = substr($domain, 0, strlen($domain)-1);
+		}
 		$this->domain = $domain;
 		return $this;
 	}

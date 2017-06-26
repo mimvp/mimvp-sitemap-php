@@ -1,59 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>http://mimvp.com/</loc>
-		<title>米扑科技</title>
-		<priority>1.0</priority>
+		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/index.php</loc>
-		<title>米扑科技</title>
-		<priority>1.0</priority>
+		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/hr.php</loc>
-		<title>米扑科技</title>
-		<priority>0.8</priority>
-		<changefreq>monthly</changefreq>
-		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/about.php</loc>
-		<title>米扑科技</title>vim
-		<priority>0.8</priority>
-		<changefreq>monthly</changefreq>
-		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/</loc>
-		<title>米扑科技</title>
-		<priority>1.0</priority>
+		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-01T00:00:00+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/index.php</loc>
-		<title>米扑科技</title>
-		<priority>1.0</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-05T00:00:00+08:00</lastmod>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/hr.php</loc>
-		<title>米扑科技</title>
-		<priority>0.8</priority>
-		<changefreq>monthly</changefreq>
-		<lastmod>2017-06-13T00:00:00+08:00</lastmod>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
 	</url>
 	<url>
-		<loc>http://mimvp.com/about.php</loc>
-		<title>米扑科技</title>
+		<loc>http://mimvp.com/css/style.css</loc>
 		<priority>0.8</priority>
-		<changefreq>monthly</changefreq>
-		<lastmod>2017-06-25T00:00:00+08:00</lastmod>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/img/mimvp-logo.png</loc>
+		<priority>0.8</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/img/sandy.jpeg</loc>
+		<priority>0.8</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/js/mimvp.js</loc>
+		<priority>0.8</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/phpinfo.php</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/robots.txt</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/sitemap-2.xml</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/sitemap-3.xml</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/sitemap2.xml</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/sitemap_index.php</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/sitemap_index.xml</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/test_xml_read.php</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/test_xml_write.php</loc>
+		<priority>1</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/xmls/mimvp/sitemap111.xml</loc>
+		<priority>0.6</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
+	</url>
+	<url>
+		<loc>http://mimvp.com/xmls/sitemap.xml</loc>
+		<priority>0.8</priority>
+		<changefreq>daily</changefreq>
+		<lastmod>2017-06-26T12:57:02+08:00</lastmod>
 	</url>
 </urlset>
