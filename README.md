@@ -2,17 +2,26 @@
 What is sitemap-php ?
 ----------
 
-sitemap-php 是一个轻量级、简单快速生成网站地图的开源项目，由北京米扑科技有限公司(mimvp.com)开发分享。
+sitemap-php 是一个轻量级、简单快速生成网站地图的开源项目，由北京米扑科技有限公司([mimvp.com](http://mimvp.com))开发分享。
 
-通过简单的配置定义，可自动生成sitemap.xml、sitemap.html等网站地图文件,
+通过简单的配置定义，一个函数createSitemap()，可自动生成sitemap.xml、sitemap.html等网站地图文件,
 
-支持Google、Bing、Baidu等主流搜索引擎。
+自动生成的xml、html文件，支持Google、Bing、Baidu等主流搜索引擎收录。
 
 Fast and lightweight class for generating Google sitemap XML files and index of sitemap files. 
 
-Written on PHP and uses XMLWriter extension (wrapper for libxml xmlWriter API) for creating XML files. XMLWriter extension is enabled by default in PHP 5 >= 5.1.2. 
+Written on PHP and uses XMLWriter extension (wrapper for libxml xmlWriter API) for creating XML files. 
+XMLWriter extension is enabled by default in PHP 5 >= 5.1.2. 
 
 If you having more than 50000 url, it splits items to seperated files. _(In benchmarks, 1.000.000 url was generating in 8 seconds)_
+
+
+##示例：
+
+#### sitemap.xml : [http://mimvp.com/sitemap.xml](http://mimvp.com/sitemap.xml)
+
+#### sitemap.html : [http://mimvp.com/sitemap.html](http://mimvp.com/sitemap.html)
+
 
 
 How to use
@@ -210,7 +219,9 @@ createXSL2Html($xmlFile, $xslFile, $htmlFile, $isopen_htmlfile=false);
 You need to submit sitemap.xml and sitemap.html to Google、 Bing、 Baidu，etc.
 
 
-**sitemap-php项目，目前支持指定网页、排除网页、扫描根目录等网站地图；后期完善时，会增加导出数据库、爬取整个网站等功能，也希望您的加入，继续完善此项目**
+**sitemap-php项目，目前支持指定网页、排除网页、扫描根目录等网站地图；<br>
+后期完善时，会增加导出数据库、爬取整个网站等功能，<br>
+也希望您的加入，继续完善此项目**
 
 	sitemap-php All Rights by mimvp.com
 

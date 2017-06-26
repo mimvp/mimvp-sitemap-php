@@ -36,8 +36,8 @@ $GExcludeArray = array("usercenter/", "sadmin/", "admin/", "sitemap.php");
 
 var_dump($GCONFIG);
 
-testSitemap();
-// createSitemap();
+// testSitemap();
+createSitemap();
 
 // 删除测试文件或目录
 // testCreateFiles(false);
