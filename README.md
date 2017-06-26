@@ -47,7 +47,7 @@ function testSitemap() {
 1. 初始化类对象
 
 ```php
-$sitemap->addItem('/index.php', '1.0', 'daily', time());
+$sitemap = new Sitemap("http://mimvp.com");
 ```
 
 2. 添加Item
@@ -113,7 +113,7 @@ More Functions
 $sitemap = new Sitemap("http://mimvp.com");
 ```
 
-修改初始化的域名为
+也可以修改初始化的域名为
 
 ```php
 $sitemap->setDomain('http://blog.mimvp.com');
