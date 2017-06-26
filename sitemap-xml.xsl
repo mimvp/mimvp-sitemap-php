@@ -67,12 +67,12 @@
 					</p>
 	        </div>
 				<div id="content">
-					<table cellpadding="5">
+					<table cellpadding="5" width="100%">
 						<tr style="border-bottom:1px black solid;">
-							<th>URL</th>
+							<th width="60%">URL</th>
 							<th>Priority</th>
 							<th>Change Frequency</th>
-							<th>Last Change</th>
+							<th width="20%">Last Change</th>
 						</tr>
 						<xsl:variable name="lower" select="'abcdefghijklmnopqrstuvwxyz'"/>
 						<xsl:variable name="upper" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>

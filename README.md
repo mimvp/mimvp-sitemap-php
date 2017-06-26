@@ -16,7 +16,7 @@ XMLWriter extension is enabled by default in PHP 5 >= 5.1.2.
 If you having more than 50000 url, it splits items to seperated files. _(In benchmarks, 1.000.000 url was generating in 8 seconds)_
 
 
-##示例：
+## 示例：
 
 #### sitemap.xml : [http://mimvp.com/sitemap.xml](http://mimvp.com/sitemap.xml)
 
@@ -181,15 +181,15 @@ Sitemap Demo
 0. 全局变量，G开头
 
 ```php
-	$GCONFIG = array(	"domain"=>"http://mimvp.com",
-				"xmlfile"=>"sitemap",
-				"htmlfile"=>"sitemap.html",
-				"xslfile"=>"sitemap-xml.xsl",
-				"isopen_xmlfile"=>true,
-				"isopen_htmlfile"=>true,
-				"isscanrootpath"=>true,
-				"isxsl2html"=>true,
-				"isschemamore"=>true);
+$GCONFIG = array(	"domain"=>"http://mimvp.com",
+			"xmlfile"=>"sitemap",
+			"htmlfile"=>"sitemap.html",
+			"xslfile"=>"sitemap-xml.xsl",
+			"isopen_xmlfile"=>true,
+			"isopen_htmlfile"=>true,
+			"isscanrootpath"=>true,
+			"isxsl2html"=>true,
+			"isschemamore"=>true);
 ```
 
 1. 生成sitemap.xml
@@ -205,7 +205,7 @@ createSitemap();
 
 
 
-2. 生成 sitemap.xml
+2. 生成 sitemap.html
 
 ```php
 createXSL2Html($xmlFile, $xslFile, $htmlFile, $isopen_htmlfile=false);
