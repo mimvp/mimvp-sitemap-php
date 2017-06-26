@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <sitemap>
+  <loc>http://mimvp.com/sitemap.xml</loc>
+  <lastmod>2017-06-26T13:32:22+08:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://mimvp.com/sitemap-2.xml</loc>
+  <lastmod>2017-06-14T23:45:42+08:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://mimvp.com/sitemap-3.xml</loc>
+  <lastmod>2017-06-22T00:00:00+08:00</lastmod>
+ </sitemap>
+</sitemapindex>

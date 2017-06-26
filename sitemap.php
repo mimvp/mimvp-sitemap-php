@@ -7,8 +7,11 @@
  * @version		1.0.1
  */
 
+// 计算生成时间
 $cost_time_start = getMillisecond();
-testCreateFiles(true);
+
+// 创建测试文件或目录
+testCreateFiles(true);		
 
 // 全局变量，G开头
 $GCONFIG = array("domain"=>"http://mimvp.com",
@@ -16,8 +19,8 @@ $GCONFIG = array("domain"=>"http://mimvp.com",
 		"isschemamore"=>true);
 
 $GChangeFreqArray = array('always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never');
-$GFileTypesArray = array('php', 'html', 'xml', 'txt', 'zip', 'pdf', 'css', 'js', 'png', 'jpeg');	// 过滤文件类型
-$GPriorityArray = array("1"=>"1", "2"=>"0.8", "3"=>"0.6");				// 按照层级对应优先级，第一层优先级为1，第二级为0.8，第三级为0.6
+$GFileTypesArray = array('php', 'html', 'xml', 'txt', 'zip', 'pdf', 'css', 'js', 'png', 'jpeg');	// 文件类型
+$GPriorityArray = array("1"=>"1", "2"=>"0.8", "3"=>"0.6", "4"=>"0.5");				// 按照层级对应优先级，第一层优先级为1，第二级为0.8，第三级为0.6
 
 // 包含文件, 以/开头
 $GIncludeArray = array("", "/index.php", "about.php", "hr.php");
@@ -50,10 +53,14 @@ createItems($sitemap, $GPriorityArray, $GIncludeArray, $GExcludeArray, $scanRoot
 
 $sitemap->endSitemap();
 
+// 打开生成的 sitemap.xml
 echo "<script>window.open('".$sitemap->getCurrXmlFileFullPath()."')</script>";
 echo "<br>Create Sitemap Success";
 
+// 删除测试文件或目录
 testCreateFiles(false);
+
+// 计算生成的时间
 $cost_time = getMillisecond() - $cost_time_start;
 $cost_time= sprintf('%01.6f', $cost_time);
 echo "<br>cost_time : $cost_time (s)<br>";
@@ -152,21 +159,14 @@ function scanRootPath($rootPath=".", $dirLevel=1, $MaxDirLevel=3, &$resArray=arr
 }
 
 
-//  获取毫秒的时间戳
-function getMillisecond() {
-	$time = explode(" ", microtime());
-	return $time[1] + $time[0];
-}
-
-
 // 生成文件或目录供测试用，可删除
 function testCreateFiles($isCreate=false) {
 	$testFiles = array(	"index.php", "about.php", "hr.php", "phpinfo.php", "robots.txt",
-			"sitemap_index.xml", "sitemap-2.xml", "sitemap-3.xml", "sitemap2.xml",
-			"img/mimvp-logo.png", "img/sandy.jpeg", "css/style.css", "js/mimvp.js",
-			"admin/about.php", "admin/admin.php", "admin/hr.php",
-			"usercenter/login.php", "usercenter/regist.php", "usercenter/user.php",
-			"xmls/sitemap.xml", "xmls/mimvp/sitemap111.xml", "xmls/mimvp2/sub/sitemap222.xml", "xmls/mimvp3/sub/third/sitemap333.xml");
+						"sitemap-2.xml", "sitemap-3.xml", "sitemap2.xml", "sitemap3.xml",
+						"img/mimvp-logo.png", "img/sandy.jpeg", "css/style.css", "js/mimvp.js",
+						"admin/about.php", "admin/admin.php", "admin/hr.php",
+						"usercenter/login.php", "usercenter/regist.php", "usercenter/user.php",
+						"xmls/sitemap.xml", "xmls/mimvp/sitemap111.xml", "xmls/mimvp2/sub/sitemap222.xml", "xmls/mimvp3/sub/third/sitemap333.xml");
 	
 	// 创建文件或目录
 	if($isCreate) {
@@ -219,38 +219,13 @@ function testDeleteDir($dir) {
 }
 
 
-// 递归删除文件或目录
-function testDeleteDir2($dir, &$fulldir="") {
-	echo "<br> dir 000  -- $dir <br>";
-	
-	if($dir== "." || $dir== "..") return;
-	
-	if(stripos($dir, "/") > 0) {
-		$dir = explode("/", $dir)[0];		// 获取根目录
-		if($fulldir == "") $fulldir = $dir;
-	} else {
-		if(file_exists($dir)) unlink($fulldir . "/" . $dir);	// 删除文件
-		return;
-	}
-	echo "<br> dir 111  -- $dir <br>";
-	if( is_dir($dir) && rmdir($dir) == false) {
-		$pd = opendir($dir);
-		while(($file = readdir($pd)) != false ) {
-			if($file== "." || $file== "..") continue;
-			echo "<br> dir 222  fulldir -- $fulldir  || file  -- $file<br>";
-			if(is_dir($file)) {
-				$fulldir = $fulldir."/".$file;
-				echo "<br> fulldir 555  -- $fulldir<br>";
-				testDeleteDir($file, $fulldir);		// 递归调用
-			} else {
-				// 				$fulldir = $fulldir . "/" . $file;
-				echo "<br> fulldir 333  -- $fulldir<br>";
-				unlink($fulldir);
-				rmdir($fulldir);
-			}
-		}
-	}
+//  获取毫秒的时间戳
+function getMillisecond() {
+	$time = explode(" ", microtime());
+	return $time[1] + $time[0];
 }
+
+
 
 /**
  * Sitemap
