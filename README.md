@@ -20,7 +20,7 @@ If you having more than 50000 url, it splits items to seperated files. _(In benc
 <br/>
 
 
-## 示例：
+## 地图示例（sitemap）：
 
 #### 米扑科技 sitemap.xml : [http://mimvp.com/sitemap.xml](http://mimvp.com/sitemap.xml)
 
@@ -54,14 +54,20 @@ function testSitemap() {
 	 $sitemap->endSitemap();
 }
 ```
-
-1. 初始化类对象
+	
+<br/>      
+	
+	
+#### 1. 初始化类对象
 
 ```php
 $sitemap = new Sitemap("http://mimvp.com");
 ```
-
-2. 添加Item
+	
+<br/>      
+	
+	
+#### 2. 添加Item
 
 ```php
 $sitemap->addItem('/', '1.0', 'daily', 'Today');
@@ -75,14 +81,20 @@ $sitemap->addItem('/about.php', '0.8', 'monthly', '2017-06-26');
 ```php
 $sitemap->addItem('/hr2.php', '1.0', 'daily', time())->addItem('/index2.php', '1.0', 'daily', 'Today')->addItem('/about2.php', '0.8', 'monthly', 'Jun 25');
 ```
-
-3. 结束文档
+	
+<br/>      
+	
+	
+#### 3. 结束文档
 
 ```php
 $sitemap->endSitemap();
 ```
 	
-4. 生成结果 sitemap.xml
+<br/>      
+	
+	
+#### 4. 生成结果 sitemap.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
