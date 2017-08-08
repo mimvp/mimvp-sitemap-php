@@ -20,7 +20,7 @@ If you having more than 50000 url, it splits items to seperated files. _(In benc
 <br/>
 
 
-## 地图示例（sitemap）：
+## 地图示例（sitemap）
 
 #### 米扑科技 sitemap.xml : [http://mimvp.com/sitemap.xml](http://mimvp.com/sitemap.xml)
 
