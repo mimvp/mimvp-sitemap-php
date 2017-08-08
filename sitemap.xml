@@ -4,84 +4,66 @@
 		<loc>http://mimvp.com/</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/hr.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/index.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/about.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/mimvp-sitemap-html.png</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/mimvp-sitemap-xml.png</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitem.html</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap.html</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
-	</url>
-	<url>
-		<loc>http://mimvp.com/sitemap.xml</loc>
-		<priority>1</priority>
-		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/sitemap_index.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/sitemap_index.xml</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/test_xml2html.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/test_xml_read.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 	<url>
 		<loc>http://mimvp.com/test_xml_write.php</loc>
 		<priority>1</priority>
 		<changefreq>daily</changefreq>
-		<lastmod>2017-06-26T20:58:05+08:00</lastmod>
+		<lastmod>2017-06-27T07:30:53+08:00</lastmod>
 	</url>
 </urlset>
