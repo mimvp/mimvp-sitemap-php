@@ -256,7 +256,7 @@ createSitemap();
 
 生成示例：
 
-![sitemap.xml 示例](https://github.com/mimvp/sitemap-php/blob/master/mimvp-sitemap-xml.png)
+![sitemap.xml 示例](./mimvp-sitemap-xml.png)
 	
 <br/>      
 	
@@ -269,7 +269,7 @@ createXSL2Html($xmlFile, $xslFile, $htmlFile, $isopen_htmlfile=false);
 
 生成示例：
 
-![sitemap.html 示例](https://github.com/mimvp/sitemap-php/blob/master/mimvp-sitemap-html.png)
+![sitemap.html 示例](./mimvp-sitemap-html.png)
 	
 	
 You need to submit sitemap.xml and sitemap.html to Google、 Bing、 Baidu，etc.
@@ -289,7 +289,7 @@ You need to submit sitemap.xml and sitemap.html to Google、 Bing、 Baidu，etc
 米扑科技
 ----------
 
-![mimvp-logo.png](https://github.com/mimvp/sitemap-php/blob/master/mimvp-logo.png)
+![mimvp-logo.png](./mimvp-logo.png)
 
 <a href="http://mimvp.com" target="_blank">http://mimvp.com</a>
 
